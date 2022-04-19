@@ -19,7 +19,11 @@ public class SwipeManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        
 
     }
     private void Update()
@@ -79,7 +83,7 @@ public class SwipeManager : MonoBehaviour
         }
 
         //Deadzone
-        if (swipeDelta.magnitude > 125)
+        if (swipeDelta.magnitude > 125f)
         {
             float x = swipeDelta.x;
             float y = swipeDelta.y;
@@ -104,7 +108,5 @@ public class SwipeManager : MonoBehaviour
 
         }
     }
-
-   
 
 }
