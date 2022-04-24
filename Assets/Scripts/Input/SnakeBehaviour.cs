@@ -24,13 +24,15 @@ public class SnakeBehaviour : MonoBehaviour
 
         snakeDirection = transform.localPosition;
         m_Started = true;
+        
 
     }
 
     private void Update()
     {
+        Boundaries();
         DetectInput();
-        //Boundaries();
+        
     }
 
     private void FixedUpdate()
@@ -89,7 +91,7 @@ public class SnakeBehaviour : MonoBehaviour
     {
         float xRange = Mathf.Clamp(transform.position.x, -1f, 1f);
         float yRange = Mathf.Clamp(transform.position.y, 0f, 4f);
-        transform.position = new Vector3(xRange, 0, transform.position.z);
+        transform.position = new Vector3(xRange, yRange, transform.position.z);
        
 
         if(snakeDirection.x <= -1f)
